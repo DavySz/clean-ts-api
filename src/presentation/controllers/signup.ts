@@ -1,5 +1,7 @@
+import { htppRequest } from '../protocols/http'
+
 export class SignUpController {
-  handle (httpRequest: any): any {
+  handle (httpRequest: htppRequest): any {
     if (!httpRequest.body.name) {
       return {
         statusCode: 400,
