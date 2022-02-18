@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>0/23</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/21</span>
+                <span class='fraction'>0/20</span>
             </div>
         
             
@@ -118,7 +118,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -144,7 +144,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { EmailValidator, Controller, htppRequest, AddAccount } from './signup-protocols'
-<span class="cstat-no" title="statement not covered" >import { badRequest, serverError, ok } from '../../helpers/http-helpers'</span>
+<span class="cstat-no" title="statement not covered" >import { badRequest, serverError, success } from '../../helpers/http-helpers'</span>
 <span class="cstat-no" title="statement not covered" >import { InvalidParamError, MissingParamError } from '../../errors'</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export class <span class="cstat-no" title="statement not covered" >S</span></span>ignUpController </span>implements Controller {
@@ -156,11 +156,11 @@
 <span class="cstat-no" title="statement not covered" >    this.addAccount = addAccount</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  handle </span>(httpRequest: htppRequest): any {</span>
-    const { name<span class="cstat-no" title="statement not covered" >, p</span>assword<span class="cstat-no" title="statement not covered" >, p</span>asswordConfirmation<span class="cstat-no" title="statement not covered" >, e</span>mail<span class="cstat-no" title="statement not covered" > } = <span class="cstat-no" title="statement not covered" >h</span>ttpRequest.body</span>
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const requiredFilds = <span class="cstat-no" title="statement not covered" >['name', 'email', 'password', 'passwordConfirmation']</span>
-<span class="cstat-no" title="statement not covered" >      for (const field<span class="cstat-no" title="statement not covered" > of <span class="cstat-no" title="statement not covered" >r</span>equiredFilds)</span> {</span>
+<span class="fstat-no" title="function not covered" >  async <span class="cstat-no" title="statement not covered" >h</span>andle (httpRequest: htppRequest): Promise&lt;any&gt; {</span>
+    const <span class="cstat-no" title="statement not covered" >{ name, password, passwordConfirmation, email } = h</span>ttpRequest.body
+    try {
+      const <span class="cstat-no" title="statement not covered" >requiredFilds = ['name', 'email', 'password', 'passwordConfirmation']</span>
+<span class="cstat-no" title="statement not covered" >      for (const <span class="cstat-no" title="statement not covered" >field of r</span>equiredFilds) {</span>
 <span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!httpRequest.body[field]) {</span>
 <span class="cstat-no" title="statement not covered" >          return badRequest(new MissingParamError(field))</span>
         }
@@ -168,16 +168,16 @@
 <span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (password !== passwordConfirmation) {</span>
 <span class="cstat-no" title="statement not covered" >        return badRequest(new InvalidParamError('passwordConfirmation'))</span>
       }
-      const isValid = <span class="cstat-no" title="statement not covered" >this.emailValidator.isValid(email)</span>
+      const <span class="cstat-no" title="statement not covered" >isValid = this.emailValidator.isValid(email)</span>
 <span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!isValid) {</span>
 <span class="cstat-no" title="statement not covered" >        return badRequest(new InvalidParamError('email'))</span>
       }
-      const account = <span class="cstat-no" title="statement not covered" >this.addAccount.add({</span>
+      const <span class="cstat-no" title="statement not covered" >account = <span class="cstat-no" title="statement not covered" >await this.addAccount.add({</span></span>
         name,
         email,
         password
       })
-<span class="cstat-no" title="statement not covered" >      return ok(account)</span>
+<span class="cstat-no" title="statement not covered" >      return success(account)</span>
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >      return serverError()</span>
     }
@@ -190,7 +190,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Feb 17 2022 19:28:56 GMT-0400 (Horário Padrão do Amazonas)
+                at Thu Feb 17 2022 20:25:23 GMT-0400 (Horário Padrão do Amazonas)
             </div>
         <script src="prettify.js"></script>
         <script>
