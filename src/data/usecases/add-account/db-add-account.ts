@@ -4,7 +4,7 @@ import { Encrypter } from './../../protocols/encrypter'
 
 export class DbAddAccount implements AddAccount {
   private readonly encrypter: Encrypter
-  constructor(encrypter: Encrypter) {
+  constructor (encrypter: Encrypter) {
     this.encrypter = encrypter
   }
 
