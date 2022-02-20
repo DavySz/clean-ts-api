@@ -2,7 +2,7 @@ import { BcryptAdapter } from './bcrypt-adapter'
 import bcrypt from 'bcrypt'
 
 describe('Bcrypt Adapter', () => {
-  test('Should call Bcrypt with correct value', async () => {
+  test('Should call Bcrypt with correct values', async () => {
     const salt = 12
     const sut = new BcryptAdapter(salt)
     const hashSpy = jest.spyOn(bcrypt, 'hash')
