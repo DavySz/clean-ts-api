@@ -1,5 +1,5 @@
-import { Encrypter } from './../../protocols/encrypter'
 import { DbAddAccount } from './db-add-account'
+import { Encrypter } from './db-add-account-protocols'
 
 interface SutTypes {
   sut: DbAddAccount
@@ -45,7 +45,7 @@ describe('DbAddAccount Usecase', () => {
       email: 'valid_email',
       password: 'valid_password'
     }
-    const promise = await sut.add(accountData)
+    const promise = sut.add(accountData)
     await expect(promise).rejects.toThrow()
   })
 })
