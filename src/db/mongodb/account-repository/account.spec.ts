@@ -12,7 +12,7 @@ describe('Account Mongo Repository', () => {
 
   beforeEach(async () => {
     const accountCollection = MongoHelper.getCollection('accounts')
-    accountCollection.deleteMany({})
+    await accountCollection.deleteMany({})
   })
 
   const makeSut = (): AccountMogoRepository => {
