@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645658102319" clover="3.2.0">
-  <project timestamp="1645658102320" name="All files">
-    <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="13" coveredelements="13" complexity="0" loc="9" ncloc="9" packages="2" files="2" classes="2"/>
-    <package name="adapters">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="express-route-adapter.ts" path="C:\Users\davyd\OneDrive\Documentos\clean-code-api\src\main\adapters\express-route-adapter.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
+<coverage generated="1645662025446" clover="3.2.0">
+  <project timestamp="1645662025446" name="All files">
+    <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="6" coveredmethods="6" elements="24" coveredelements="24" complexity="0" loc="17" ncloc="17" packages="2" files="2" classes="2"/>
+    <package name="account-repository">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="account.ts" path="C:\Users\davyd\OneDrive\Documentos\clean-code-api\src\infra\db\mongodb\account-repository\account.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="routes">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="signup-routes.ts" path="C:\Users\davyd\OneDrive\Documentos\clean-code-api\src\main\routes\signup-routes.ts">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
+    <package name="helpers">
+      <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
+      <file name="mongo-helper.ts" path="C:\Users\davyd\OneDrive\Documentos\clean-code-api\src\infra\db\mongodb\helpers\mongo-helper.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
       </file>
     </package>
   </project>
