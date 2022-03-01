@@ -1,6 +1,7 @@
 import { SignUpController } from './signup'
 import { AddAccountModel, AddAccount, AccountModel, EmailValidator, Validation } from './signup-protocols'
 import { InvalidParamError, MissingParamError, ServerError } from '../../errors'
+import { ok, badRequest } from './../../helpers/http-helpers'
 
 interface SutType {
   sut: SignUpController
@@ -214,6 +215,20 @@ describe('SignUp Controller', () => {
     })
   })
 
+  test('Should return 200 if valid data is provided', async () => {
+    const { sut } = makeSut()
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: 'any_email@mail.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse).toEqual(ok(httpResponse.body))
+  })
+
   test('Should call Validation with correct values', async () => {
     const { sut, validationStub } = makeSut()
     const validadeSpy = jest.spyOn(validationStub, 'validate')
@@ -227,5 +242,20 @@ describe('SignUp Controller', () => {
     }
     await sut.handle(httpRequest)
     expect(validadeSpy).toHaveBeenCalledWith(httpRequest.body)
+  })
+
+  test('Should return 400 if validation return an error', async () => {
+    const { sut, validationStub } = makeSut()
+    jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('any_field'))
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: 'any_email@mail.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse).toEqual(badRequest(new MissingParamError('any_field')))
   })
 })
