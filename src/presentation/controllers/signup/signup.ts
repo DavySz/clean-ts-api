@@ -16,7 +16,10 @@ export class SignUpController implements Controller {
   async handle (httpRequest: htppRequest): Promise<any> {
     const { name, password, passwordConfirmation, email } = httpRequest.body
     try {
-      this.validation.validate(httpRequest.body)
+      const error = this.validation.validate(httpRequest.body)
+      if (error) {
+        return badRequest(error)
+      }
       const requiredFilds = ['name', 'email', 'password', 'passwordConfirmation']
       for (const field of requiredFilds) {
         if (!httpRequest.body[field]) {
