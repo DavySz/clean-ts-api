@@ -1,5 +1,5 @@
+import { AccountMogoRepository } from './account-mongo-repository'
 import { MongoHelper } from '../helpers/mongo-helper'
-import { AccountMogoRepository } from './account'
 import { Collection, ObjectId } from 'mongodb'
 
 let accountCollection: Collection
